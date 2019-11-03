@@ -8,4 +8,6 @@ class Gift < ApplicationRecord
 
   validates_uniqueness_of :recipient,    scope: :year
   validates_uniqueness_of :secret_santa, scope: :year
+
+  attribute :year, :integer, default: Time.current.year
 end
