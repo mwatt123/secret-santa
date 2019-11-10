@@ -9,7 +9,7 @@ class GiftsBuilder
 
   def call
     assign_all_gifts
-    gifts_collection_verified? ? Gift.create(gifts) : GiftsBuilder.new(@people).call
+    gifts_collection_verified? ? Gift.create(@gifts) : GiftsBuilder.new(people: @people).call
   end
 
   private
@@ -21,19 +21,22 @@ class GiftsBuilder
   def assign_all_gifts
     @santas.each do |santa|
       recipient = get_recipient(santa)
+      break unless recipient
       @gifts << {
-        santa_id:     santa[:id],
-        recipient_id: recipient[:id]
+        secret_santa_id: santa[:id],
+        recipient_id:    recipient[:id]
       }
     end
   end
 
   def gifts_collection_verified?
-    GiftsCollectionVerifier.call(@gifts, @santas)
+    verified = GiftsCollectionVerifier.call(gifts: @gifts, santas: @santas)
+    puts "verified? #{verified}"
+    verified
   end
 
   def get_recipient(santa)
     recipient = @recipient_pool.find { |r| r[:family_id] != santa[:family_id] }
-    @recipient_pool.slice!(recipient)
+    @recipient_pool.delete(recipient)
   end
 end

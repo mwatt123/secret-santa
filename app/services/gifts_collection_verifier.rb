@@ -1,6 +1,6 @@
 class GiftsCollectionVerifier
   class << self
-    def call(gifts, santas)
+    def call(gifts:, santas:)
       @gifts  = gifts
       @santas = santas
 
@@ -21,12 +21,13 @@ class GiftsCollectionVerifier
     def gifts_not_blank?
       gifts_present = true
       gifts_present = @gifts.each do |gift|
-        break false if gift[:santa_id].blank? || gift[:recipient_id].blank? 
+        break false if gift[:secret_santa_id].blank? || gift[:recipient_id].blank? 
       end
     end
 
     def santas_unique?
-      @gifts.size == @gifts.map{ |g| g[:santa_id] }.uniq.size
+      # puts "gifts count: #{@gifts.size}, unique: #{@gifts.map{ |g| g[:secret_santa_id] }.uniq.size}"
+      @gifts.size == @gifts.map{ |g| g[:secret_santa_id] }.uniq.size
     end
 
     def recipients_unique?
