@@ -3,6 +3,6 @@ class Santa < ApplicationRecord
   
   belongs_to :family
   has_many   :gifts
-  has_one    :secret_santa, through: :gifts
-  has_one    :recipient,    through: :gifts
+  has_one    :gift_to_buy, -> { where(year: Time.current.year) }, class_name: 'Gift', foreign_key: :secret_santa_id
+  has_one    :recipient, through: :gift_to_buy
 end

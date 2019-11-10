@@ -1,0 +1,43 @@
+// Place all the styles related to the Santas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+* {
+	margin: 0;
+	padding: 0;
+}
+body, html {
+  margin: 0;
+  font-family: 'Lato';
+  font-weight: 700;
+  // font-size: 30rem;
+  color: #FFF;
+  
+}
+.sky {
+  color: #FFF;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding-top: 18%;
+  box-sizing: border-box;
+}
+.content-inner{
+  z-index: 1231231;
+  padding: 64px;
+}
+.content-inner h3 {
+  // font-size: 48px;
+  font-size: 2rem;
+}
+.content-inner p {
+  // font-size: 48px;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 600px){
+	.content-inner{
+	  padding: 24px;
+	}
+}
