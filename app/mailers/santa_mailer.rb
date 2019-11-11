@@ -1,7 +1,7 @@
 class SantaMailer < ApplicationMailer
   def notification_email(santa)
-    @santa = santa
-    @url   = "https://www.matthew-watt.com/santas/#{@santa.token}"
-    mail(to: @santa.email, subject: 'Watt Family Secret Santa')
+    @name = santa.name
+    @url  = "https://www.matthew-watt.com/santas/#{santa.token}"
+    mail(to: santa.email, subject: "#{santa.name} - Watt Family Secret Santa")
   end
 end
