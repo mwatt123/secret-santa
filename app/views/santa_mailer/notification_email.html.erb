@@ -13,12 +13,13 @@
     	}
       .content{
         max-width: 480px;
-        padding: 0px 24px;
+        padding: 24px;
       }
       .emphasis{
         font-weight: bold;
       }
     	a{
+        font-weight: bold;
     		color: #235E6F;
     	}
     	h2{
@@ -36,13 +37,14 @@
   	<div class="content">
       <h2>Merry Christmas, <%= @santa.name %></h2>
       <p>
-        Every year since 2018 the Watt family has participated in a <span class="emphasis">secret santa</span>, where each family member draws a name at random and must give a gift to that person.
+        Every year since way back in 2018 the Watt family has participated in a <span class="emphasis">secret santa</span>, where each family member draws a name at random and must give a gift to that person.
       </p>
       <p>
         Since the robot apocalypse is only a few years away, we've automated the process this year to randomly assign names to each participating family member. One advantage of this approach is that we can make sure that people from the same corner of the family don't draw eachother's names (eg. Pia won't get George, Trevor won't get Aaron, etc etc).
       </p>
       <p>
-        Click here: <a href='<%= @url %>'><%= @url %></a> to view the name you've assigned this year. If there are any problems with this link or if anything is unclear, please feel free to send Matthew an email to compain at <a href="mailto:mwatt@outlook.com">mwatt@outlook.com</a></p>
+        Click here: <a href='<%= @url %>'><%= @url %></a> to view the name you've assigned this year. If there are any problems with this link or if anything is unclear, please feel free to send Matthew an email to compain at <a href="mailto:mwatt@outlook.com">mwatt@outlook.com</a>
+      </p>
     </div>
   </body>
 </html>
