@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
   def render_not_found
-    raise ActionController::RoutingError.new('Not Found')
+    redirect_to :root_path
   end
 end
